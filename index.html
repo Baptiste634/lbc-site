@@ -21,7 +21,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);font-weight:300;line-height:1.65}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%}img{-webkit-user-select:none;user-select:none;-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none;pointer-events:none}
 a{color:inherit;text-decoration:none}
 h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:600;letter-spacing:-.01em}
 
@@ -192,7 +192,7 @@ footer strong{color:#fff;font-weight:500}
   <div class="hero-inner">
     <p class="eyebrow">Constructeur de maisons — Région PACA</p>
     <h1>Devenez propriétaire d'une maison neuve, au meilleur prix du marché</h1>
-    <p class="lead">Notre spécialité : la maison mitoyenne neuve avec jardin privatif, l'offre la plus puissante financièrement du marché du neuf. Toutes les garanties du contrat CCMI, un accompagnement de A à Z.</p>
+    <p class="lead">Grâce à notre concept unique, nous réinventons l'accession à la maison neuve en proposant des maisons mitoyennes avec jardin privatif, particulièrement attractives sur le plan financier. Une solution clé en main qui allie confort, sécurité juridique et intelligence financière, encadrée par toutes les garanties du contrat CCMI.</p>
   </div>
   <div class="segments">
     <a class="segment featured" href="#mitoyenne">
@@ -216,7 +216,7 @@ footer strong{color:#fff;font-weight:500}
     <div class="sec-head">
       <div class="seg-band"><span class="n">NOTRE SPÉCIALITÉ</span></div>
       <h2>La maison mitoyenne : la solution la plus puissante financièrement</h2>
-      <p>Grâce à un montage foncier optimisé et des plans standardisés éprouvés, nous proposons des maisons neuves avec jardin privatif au prix d'un appartement — le prix constaté le plus faible du marché. Une opportunité rare, en résidence principale comme en investissement.</p>
+      <p>Grâce à un concept maîtrisé, des plans optimisés et une approche efficace de la construction, nous rendons la maison neuve avec jardin privatif accessible au prix d'un appartement. Une opportunité rare sur le marché du neuf, idéale en résidence principale comme en investissement.</p>
     </div>
 
     <figure class="mit-banner">
@@ -268,12 +268,13 @@ footer strong{color:#fff;font-weight:500}
       <ul>
         <li>Climatisation réversible gainable</li>
         <li>Douche à l'italienne</li>
+        <li>Salle de bain équipée</li>
+        <li>Sol grand format</li>
         <li>WC suspendu</li>
         <li>Menuiseries PVC gris anthracite</li>
-        <li>Isolant haute performance ACTIS</li>
-        <li>Enduit gratté fin</li>
         <li>Volets roulants électriques</li>
-        <li>Cuisine pré-équipée (arrivées et évacuations)</li>
+        <li>Isolant haute performance ACTIS</li>
+        <li>Domotique — maison connectée</li>
       </ul>
     </div>
 
@@ -400,6 +401,10 @@ document.getElementById('lead-form').addEventListener('submit', async (e) => {
     note.textContent = "Votre messagerie va s'ouvrir pour finaliser l'envoi.";
   }
 });
+
+// Protection des visuels : blocage clic droit / glisser sur les images
+document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG' || getComputedStyle(e.target).backgroundImage !== 'none') e.preventDefault(); });
+document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
 document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
 </script>
 </body>
