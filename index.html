@@ -133,6 +133,13 @@ section{padding:5.5rem 1.5rem}
 .vente .surf{font-size:.88rem;color:#59626e}
 .vente .prix{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.35rem;color:var(--slate);margin-top:.5rem}
 .ventes .mention{font-size:.82rem;color:#8a919c;margin-top:1.8rem}
+.ventes .groupe{display:flex;align-items:center;gap:1rem;margin:2.8rem 0 1.4rem}
+.ventes .groupe h3{font-size:1.2rem;color:var(--slate);white-space:nowrap}
+.ventes .groupe::after{content:"";flex:1;height:1px;background:var(--line)}
+.vente .badge.b-vendu{color:#44594A;border-color:#44594A}
+.vente .badge.b-cours{color:#B5876A;border-color:#B5876A}
+.vente .badge.b-venir{color:#8A8F98;border-color:#8A8F98}
+.vente .prix.p-muted{font-size:1rem;color:#8A8F98;font-weight:400;font-family:'Inter',sans-serif}
 
 /* ---------- ACCOMPAGNEMENT ---------- */
 .steps{counter-reset:step;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.2rem 3rem}
@@ -190,7 +197,7 @@ footer strong{color:#fff;font-weight:500}
     <nav>
       <ul id="menu">
         <li><a href="#mitoyenne">Maison mitoyenne</a></li>
-        <li><a href="#ventes">Prix constatés</a></li>
+        <li><a href="#ventes">Prix &amp; projets</a></li>
         <li><a href="#individuelle">Maison individuelle</a></li>
         <li><a href="#accompagnement">Accompagnement</a></li>
         <li><a href="#agences">Agences</a></li>
@@ -306,19 +313,64 @@ footer strong{color:#fff;font-weight:500}
   <div class="wrap">
     <div class="sec-head">
       <div class="seg-band"><span class="n">PRIX CONSTATÉS</span></div>
-      <h2>Des exemples concrets, vendus ces 3 derniers mois</h2>
-      <p>Pas de promesse théorique : voici des projets réellement signés récemment. Jugez par vous-même.</p>
+      <h2>Prix constatés &amp; projets en cours</h2>
+      <p>Pas de promesse théorique : des projets réellement signés, d'autres en construction, et les prochaines opportunités. Jugez par vous-même.</p>
     </div>
-    <div class="ventes-grid">
-      <div class="vente"><span class="badge">Vendu</span><h3>La Penne-sur-Huveaune</h3><p class="surf">Maison 80 m² — jardin privatif</p><p class="prix">320 000 €</p></div>
-      <div class="vente"><span class="badge">Vendu</span><h3>La Penne-sur-Huveaune</h3><p class="surf">Maison 70 m² — jardin privatif</p><p class="prix">295 000 €</p></div>
-      <div class="vente"><span class="badge">Vendu</span><h3>Aubagne</h3><p class="surf">Maison 93 m² — jardin privatif</p><p class="prix">370 000 €</p></div>
-      <div class="vente"><span class="badge">Vendu</span><h3>Vitrolles</h3><p class="surf">Maison 70 m² — jardin privatif</p><p class="prix">290 000 €</p></div>
-      <div class="vente"><span class="badge">Vendu</span><h3>Rousset</h3><p class="surf">Maison 80 m² — jardin privatif</p><p class="prix">325 000 €</p></div>
-      <div class="vente"><span class="badge">Vendu</span><h3>Ventabren</h3><p class="surf">Maison 80 m² — jardin privatif</p><p class="prix">335 000 €</p></div>
-      <div class="vente"><span class="badge">Vendu</span><h3>Fréjus</h3><p class="surf">Maison 80 m² — jardin privatif</p><p class="prix">305 000 €</p></div>
-    </div>
-    <p class="mention">Prix de vente réels de projets signés au cours des 3 derniers mois. Disponibilités et prix variables selon les secteurs.</p>
+    <div id="projets-conteneur"></div>
+    <p class="mention">Prix de vente réels. Disponibilités et prix variables selon les secteurs.</p>
+
+    <script>
+    /* ============================================================
+       LISTE DES PROJETS — À METTRE À JOUR CHAQUE MOIS
+       Ajouter un projet = ajouter une ligne ci-dessous.
+       statut : "vendu" | "en-cours" | "a-venir"
+       prix : mettre "" pour afficher "Prix — nous consulter"
+       ============================================================ */
+    const PROJETS = [
+      // --- Vendus récemment ---
+      { commune: "La Penne-sur-Huveaune", surface: 80, prix: "320 000 €", statut: "vendu" },
+      { commune: "La Penne-sur-Huveaune", surface: 70, prix: "295 000 €", statut: "vendu" },
+      { commune: "Aubagne",               surface: 93, prix: "370 000 €", statut: "vendu" },
+      { commune: "Vitrolles",             surface: 70, prix: "290 000 €", statut: "vendu" },
+      { commune: "Rousset",               surface: 80, prix: "325 000 €", statut: "vendu" },
+      { commune: "Ventabren",             surface: 80, prix: "335 000 €", statut: "vendu" },
+      { commune: "Fréjus",                surface: 80, prix: "305 000 €", statut: "vendu" },
+      { commune: "Allauch 1",             surface: 80, prix: "335 000 €", statut: "vendu" },
+      { commune: "Allauch 3",             surface: 80, prix: "350 000 €", statut: "vendu" },
+      { commune: "La Penne-sur-Huveaune 4", surface: 70, prix: "286 000 €", statut: "vendu" },
+      // --- En cours ---
+      { commune: "Ceyrat (63)",           surface: 80, prix: "249 000 €", statut: "en-cours" },
+      { commune: "Beaumont (63)",         surface: 80, prix: "239 000 €", statut: "en-cours" },
+      { commune: "Allauch 4",             surface: 80, prix: "340 000 €", statut: "en-cours" },
+      { commune: "La Penne-sur-Huveaune 5", surface: 80, prix: "320 000 €", statut: "en-cours" },
+      // --- À venir ---
+      { commune: "Chamalières (63)",      surface: 80, prix: "295 000 €", statut: "a-venir" },
+      { commune: "Allauch 5",             surface: 80, prix: "345 000 €", statut: "a-venir" },
+      { commune: "Plan-de-Cuques",        surface: 80, prix: "310 000 €", statut: "a-venir" },
+    ];
+
+    (function(){
+      const groupes = [
+        { statut: "vendu",    titre: "Vendus récemment", badge: "Vendu",    cls: "b-vendu" },
+        { statut: "en-cours", titre: "En cours",         badge: "En cours", cls: "b-cours" },
+        { statut: "a-venir",  titre: "À venir",          badge: "À venir",  cls: "b-venir" },
+      ];
+      let out = "";
+      for (const g of groupes) {
+        const items = PROJETS.filter(p => p.statut === g.statut);
+        if (!items.length) continue;
+        out += `<div class="groupe"><h3>${g.titre}</h3></div><div class="ventes-grid">`;
+        for (const p of items) {
+          const prix = p.prix
+            ? `<p class="prix">${p.prix}</p>`
+            : `<p class="prix p-muted">Prix — nous consulter</p>`;
+          out += `<div class="vente"><span class="badge ${g.cls}">${g.badge}</span><h3>${p.commune}</h3><p class="surf">Maison ${p.surface} m² — jardin privatif</p>${prix}</div>`;
+        }
+        out += `</div>`;
+      }
+      document.getElementById("projets-conteneur").innerHTML = out;
+    })();
+    </script>
   </div>
 </section>
 
@@ -369,6 +421,14 @@ footer strong{color:#fff;font-weight:500}
         <h3>Aix – Marseille · Les Bâtisseurs Créateurs</h3>
         <dl>
           <dt>Adresse</dt><dd>203 avenue Paul Julien, 13100 Le Tholonet</dd>
+          <dt>Téléphone</dt><dd><a href="tel:+33764121126">07 64 12 11 26</a></dd>
+          <dt>Email</dt><dd><a href="mailto:contact@les-batisseurs-createurs.com">contact@les-batisseurs-createurs.com</a></dd>
+        </dl>
+      </div>
+      <div class="agence">
+        <h3>Clermont-Ferrand · Les Bâtisseurs Créateurs</h3>
+        <dl>
+          <dt>Adresse</dt><dd>138 route de Volvic, 63530 Enval</dd>
           <dt>Téléphone</dt><dd><a href="tel:+33764121126">07 64 12 11 26</a></dd>
           <dt>Email</dt><dd><a href="mailto:contact@les-batisseurs-createurs.com">contact@les-batisseurs-createurs.com</a></dd>
         </dl>
