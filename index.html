@@ -7,184 +7,195 @@
 <meta name="description" content="Constructeur de maisons en région PACA. Notre spécialité : la maison mitoyenne neuve avec jardin privatif, au prix le plus compétitif du neuf. Garanties CCMI, prestations incluses, accompagnement de A à Z.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,550;1,9..144,400&family=Archivo:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+/* Charte « Les Bâtisseurs » — éditorial calme : ivoire et grège, olive, arches, filets fins */
 :root{
-  --slate:#26374D;
-  --slate-deep:#1D2B3D;
-  --sand:#A6937A;
-  --paper:#FAFAF7;
-  --stone:#EFEDE6;
-  --ink:#2A313B;
-  --line:rgba(38,55,77,.14);
+  --ivoire:#F6F1E9;
+  --grege:#EDE5D9;
+  --grege-fonce:#E8DFD2;
+  --papier:#FBF8F3;
+  --filet:#DDD3C4;
+  --filet-fonce:#CFC4B3;
+  --encre:#2B2A26;
+  --encre-douce:#4F4B43;
+  --sourdine:#625D53;
+  --olive:#4A5134;
+  --olive-fonce:#353A25;
+  --display:'Fraunces',Georgia,serif;
+  --texte:'Jost','Helvetica Neue',Arial,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);font-weight:300;line-height:1.65}
+body{font-family:var(--texte);color:var(--encre);background:var(--ivoire);font-weight:400;line-height:1.6;font-size:16px}
 img{display:block;max-width:100%}img{-webkit-user-select:none;user-select:none;-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none;pointer-events:none}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:600;letter-spacing:-.01em}
+h1,h2,h3,h4{font-family:var(--display);font-weight:300;letter-spacing:-.02em;text-wrap:balance}
+:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
 
 /* ---------- NAV ---------- */
-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(228,223,211,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(31,41,55,.12)}
-.nav{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.65rem 1.5rem}
-.brand{font-family:'Archivo',sans-serif;font-weight:700;color:var(--slate);font-size:1.02rem}
-.brand small{display:block;font-weight:500;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--sand)}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--ivoire);border-bottom:1px solid var(--filet)}
+.nav{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.5rem}
+.brand{display:flex;flex-direction:column;color:var(--encre)}
+.brand b{font-family:var(--display);font-weight:400;font-size:1.3rem;letter-spacing:-.01em;line-height:1.15}
+.brand small{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--sourdine);font-weight:400}
 nav ul{display:flex;gap:1.8rem;list-style:none;align-items:center}
-nav a{color:var(--slate);font-size:.85rem;font-weight:400;padding:.4rem 0;border-bottom:1px solid transparent;transition:border-color .25s}
-nav a:hover,nav a:focus-visible{border-bottom-color:var(--slate);outline:none}
-.nav-cta{background:var(--slate);color:#fff!important;padding:.55rem 1.15rem!important;border:none!important;border-radius:3px;transition:background .25s}
-.nav-cta:hover{background:var(--slate-deep)}
-.burger{display:none;background:none;border:1px solid var(--line);color:var(--slate);font-size:1.25rem;padding:.25rem .65rem;cursor:pointer;border-radius:3px}
+nav a{color:var(--encre);font-size:.9rem;font-weight:400;padding:.4rem 0}
+nav a:hover,nav a:focus-visible{color:var(--olive);outline:none}
+.nav-cta{background:var(--olive);color:var(--ivoire)!important;padding:.65rem 1.3rem!important;border:1px solid var(--olive)!important;font-weight:500;transition:background .2s}
+.nav-cta:hover{background:var(--olive-fonce)}
+.burger{display:none;background:none;border:1px solid var(--filet-fonce);color:var(--encre);font-size:1.25rem;padding:.25rem .65rem;cursor:pointer}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;padding:9rem 1.5rem 5rem;background:#E8E4DA;color:var(--ink)}
-.hero-inner{max-width:820px;margin:0 auto;text-align:center}
-.eyebrow{color:#44594A;letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;font-weight:500;margin-bottom:1.6rem}
-.hero .eyebrow{margin-bottom:1.8rem}
-.hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.16;color:#1F2937;letter-spacing:-.01em}
-.hero p.lead{max-width:58ch;margin:1.8rem auto 0;font-size:1.02rem;color:#6B7280;font-weight:300}
-.hero-visual{max-width:1180px;margin:3.5rem auto 0}
-.hero-visual img{border-radius:2px;width:100%}
-.hero-visual .note{margin-top:1rem;font-size:.85rem;color:#8A8F98;letter-spacing:.02em}
-.hero-visual .note strong{font-weight:500;color:#44594A;font-family:'Inter',sans-serif}
+.hero{padding:9.5rem 1.5rem 6rem;background:var(--ivoire);text-align:center}
+.hero-inner{max-width:780px;margin:0 auto}
+.eyebrow{color:var(--sourdine);letter-spacing:.22em;text-transform:uppercase;font-size:.75rem;font-weight:400;margin-bottom:1.6rem}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.04;letter-spacing:-.03em;color:var(--encre)}
+.hero h1 em{font-style:italic;color:var(--olive)}
+.hero p.lead{max-width:620px;margin:1.7rem auto 0;font-size:1.1rem;line-height:1.65;color:var(--encre-douce);font-weight:300}
+.hero-visual{max-width:1180px;margin:3.2rem auto 0}
+.hero-visual img{width:100%;height:clamp(340px,50vw,620px);object-fit:cover;border-radius:18px}
 
-/* dual segments — épuré, filets fins */
-.segments{max-width:1180px;margin:4.5rem auto 0;display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding-top:.5rem}
-.segment{border-top:1px solid #1F2937;padding:1.8rem 0 0;display:flex;flex-direction:column;background:none;transition:border-color .3s}
-.segment.featured{border-top:2px solid #44594A}
-.segment .tag{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:#44594A;font-weight:500;margin-bottom:.8rem}
-.segment h2{font-family:'Fraunces',serif;font-weight:400;font-size:1.55rem;color:#1F2937;margin-bottom:.7rem}
-.segment p{font-size:.95rem;color:#6B7280;margin-bottom:1.4rem;font-weight:300}
-.segment .go{margin-top:auto;font-size:.85rem;font-weight:500;color:#1F2937;display:inline-flex;align-items:center;gap:.6rem;letter-spacing:.04em}
-.segment .go::after{content:"→";transition:transform .25s;color:#44594A}
+/* segments : filets fins */
+.segments{max-width:1180px;margin:4.5rem auto 0;display:grid;grid-template-columns:1fr 1fr;gap:3rem;text-align:left}
+.segment{border-top:1px solid var(--filet-fonce);padding:1.8rem 0 0;display:flex;flex-direction:column}
+.segment.featured{border-top:2px solid var(--olive)}
+.segment .tag{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:500;margin-bottom:.8rem}
+.segment h2{font-weight:400;font-size:1.7rem;color:var(--encre);margin-bottom:.7rem}
+.segment p{font-size:.96rem;color:var(--sourdine);margin-bottom:1.4rem;font-weight:300}
+.segment .go{margin-top:auto;font-size:.88rem;font-weight:500;color:var(--encre);display:inline-flex;align-items:center;gap:.6rem}
+.segment .go::after{content:"→";transition:transform .25s;color:var(--olive)}
 .segment:hover .go::after{transform:translateX(5px)}
 
 /* ---------- SECTIONS ---------- */
-section{padding:5.5rem 1.5rem}
+section{padding:6.5rem 1.5rem}
 .wrap{max-width:1180px;margin:0 auto}
-.sec-head{max-width:66ch;margin-bottom:3rem}
-.sec-head h2{font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--slate);margin:.5rem 0 1rem}
-.sec-head p{color:#59626e}
-.seg-band .n{font-family:'Archivo',sans-serif;font-weight:700;font-size:.8rem;color:var(--sand);letter-spacing:.2em}
-.btn{display:inline-block;padding:.85rem 1.8rem;font-size:.88rem;font-weight:500;border-radius:3px;transition:all .25s;cursor:pointer;border:1px solid transparent}
-.btn-dark{background:var(--slate);color:#fff}
-.btn-dark:hover{background:var(--slate-deep)}
-.btn-sand{background:var(--sand);color:#fff}
-.btn-sand:hover{filter:brightness(1.08)}
+.sec-head{max-width:66ch;margin-bottom:3.2rem}
+.sec-head h2{font-size:clamp(2rem,4.6vw,2.9rem);line-height:1.1;color:var(--encre);margin:.6rem 0 1.1rem}
+.sec-head h2 em{font-style:italic;color:var(--olive)}
+.sec-head p{color:var(--sourdine);font-size:1.05rem;font-weight:300;line-height:1.6}
+.seg-band .n{font-size:.75rem;color:var(--sourdine);letter-spacing:.22em;font-weight:400;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 1.9rem;font-size:.95rem;font-weight:500;letter-spacing:.02em;cursor:pointer;border:1px solid var(--olive);background:var(--olive);color:var(--ivoire);transition:background .2s}
+.btn:hover{background:var(--olive-fonce)}
 
-/* ---------- MITOYENNE (section phare) ---------- */
-.mitoyenne{background:var(--slate);color:#fff}
-.mitoyenne .sec-head h2{color:#fff}
-.mitoyenne .sec-head p{color:rgba(255,255,255,.78)}
-.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);border-radius:6px;overflow:hidden;margin-bottom:3.5rem}
-.adv{background:var(--slate);padding:1.9rem 1.7rem}
-.adv h3{font-size:1.03rem;color:#fff;margin-bottom:.5rem;display:flex;gap:.7rem;align-items:baseline}
-.adv h3::before{content:"—";color:var(--sand)}
-.adv p{font-size:.92rem;color:rgba(255,255,255,.75)}
+/* ---------- MITOYENNE (section phare, bande olive) ---------- */
+.mitoyenne{background:var(--olive);color:var(--ivoire)}
+.mitoyenne .seg-band .n{color:#D9D3B8}
+.mitoyenne .sec-head h2{color:var(--ivoire)}
+.mitoyenne .sec-head h2 em{color:#D9D3B8}
+.mitoyenne .sec-head p{color:#E6E1D2}
+.mit-banner{margin-bottom:4rem}
+.mit-banner img{width:100%;height:auto;display:block;border-radius:18px}
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 3rem;margin-bottom:4rem}
+.adv{border-top:1px solid rgba(246,241,233,.35);padding:1.7rem 0 1.9rem}
+.adv h3{font-weight:400;font-size:1.3rem;color:var(--ivoire);margin-bottom:.55rem;letter-spacing:-.01em}
+.adv p{font-size:.95rem;color:#E6E1D2;font-weight:300;line-height:1.6}
 
-.sub-title{display:flex;align-items:center;gap:1rem;margin:0 0 1.5rem}
-.sub-title h3{font-size:1.25rem;color:#fff;white-space:nowrap}
-.sub-title::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.2)}
+.sub-title{display:flex;align-items:baseline;gap:1rem;margin:0 0 1.8rem}
+.sub-title h3{font-weight:400;font-size:1.5rem;color:var(--ivoire);white-space:nowrap}
+.sub-title::after{content:"";flex:1;height:1px;background:rgba(246,241,233,.3);align-self:center}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;margin-bottom:3.5rem}
-.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:6px;overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.3)}
-.card .thumb{aspect-ratio:4/3;overflow:hidden;background:var(--slate-deep);display:flex;align-items:center;justify-content:center}
-.card .thumb img{width:100%;height:100%;object-fit:cover}
-.card .thumb span{font-family:'Archivo',sans-serif;font-weight:700;font-size:2.6rem;color:var(--sand)}
-.card-body{padding:1.2rem 1.3rem 1.4rem}
-.card-body h4{font-size:1.1rem;color:#fff}
-.card-body .meta{font-size:.86rem;color:rgba(255,255,255,.7);margin-top:.3rem}
+/* surfaces : chiffres Fraunces sur filets, sans cartes */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 2.5rem;margin-bottom:4rem}
+.card{border-top:1px solid rgba(246,241,233,.35);padding:1.5rem 0 1.2rem}
+.card b{display:block;font-family:var(--display);font-weight:300;font-size:3rem;line-height:1.1;color:var(--ivoire);font-variant-numeric:tabular-nums}
+.card b i{font-style:normal;font-size:1.3rem;color:#D9D3B8}
+.card .meta{font-size:.92rem;color:#E6E1D2;font-weight:300;margin-top:.3rem}
 
-/* prestations incluses */
-.presta{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:2.4rem 2.2rem;margin-bottom:3rem}
-.presta h3{font-size:1.25rem;color:#fff;margin-bottom:.4rem}
-.presta .note{font-size:.9rem;color:var(--sand);margin-bottom:1.6rem;font-weight:400}
-.presta ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.65rem 2.5rem}
-.presta li{font-size:.94rem;color:rgba(255,255,255,.85);padding-left:1.3rem;position:relative}
-.presta li::before{content:"✓";position:absolute;left:0;color:var(--sand);font-weight:500}
-.mit-cta{text-align:center;padding-top:.5rem}
-.mit-cta p{color:rgba(255,255,255,.75);margin-bottom:1.2rem;font-size:.98rem}
+.mit-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem;margin-bottom:4rem}
+.mit-gallery .shot{overflow:hidden;aspect-ratio:4/3;background:var(--olive-fonce)}
+.mit-gallery img{width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+.mit-gallery .shot:hover img{opacity:.92}
 
+/* prestations incluses : liste à filets */
+.presta{margin-bottom:3.5rem}
+.presta h3{font-weight:400;font-size:1.5rem;color:var(--ivoire);margin-bottom:.3rem}
+.presta .note{font-size:.95rem;color:#D9D3B8;margin-bottom:1.6rem;font-weight:300;font-style:italic;font-family:var(--display)}
+.presta ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 3rem}
+.presta li{font-size:.97rem;color:var(--ivoire);font-weight:300;padding:.75rem 0;border-bottom:1px solid rgba(246,241,233,.25)}
+.mit-cta{text-align:center;padding-top:1rem}
+.mit-cta p{color:#E6E1D2;margin-bottom:1.4rem;font-size:1rem;font-weight:300}
+.mitoyenne .btn{background:var(--ivoire);color:var(--olive);border-color:var(--ivoire)}
+.mitoyenne .btn:hover{background:var(--grege)}
 
-/* bannière & galerie mitoyenne */
-.mit-banner{position:relative;border-radius:6px;overflow:hidden;margin-bottom:3.5rem}
-.mit-banner img{width:100%;height:auto;display:block}
-.mit-banner figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.5rem 1.6rem 1.1rem;background:linear-gradient(transparent,rgba(29,43,61,.85));color:#fff;font-size:.92rem;letter-spacing:.02em}
-.mit-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.3rem;margin-bottom:3.5rem}
-.mit-gallery .shot{overflow:hidden;aspect-ratio:4/3;border-radius:6px;background:var(--slate-deep)}
-.mit-gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.mit-gallery .shot:hover img{transform:scale(1.04)}
+/* ---------- VENTES : éditorial sur ivoire ---------- */
+.ventes{background:var(--ivoire)}
+.ventes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 2.5rem}
+.vente{border-top:1px solid var(--filet-fonce);padding:1.4rem 0 1.6rem;position:relative;display:flex;flex-direction:column;gap:.25rem}
+.vente .badge{align-self:flex-start;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .7rem;font-weight:500;margin-bottom:.7rem;border:1px solid}
+.vente h3{font-weight:400;font-size:1.25rem;color:var(--encre);letter-spacing:-.01em}
+.vente .surf{font-size:.9rem;color:var(--sourdine);font-weight:300}
+.vente .prix{font-family:var(--display);font-weight:300;font-size:1.8rem;color:var(--olive);margin-top:.5rem;font-variant-numeric:tabular-nums}
+.ventes .mention{font-size:.85rem;color:var(--sourdine);margin-top:2.2rem;font-weight:300}
+.ventes .groupe{display:flex;align-items:baseline;gap:1rem;margin:3rem 0 1.6rem}
+.ventes .groupe h3{font-weight:400;font-size:1.6rem;color:var(--encre);white-space:nowrap}
+.ventes .groupe::after{content:"";flex:1;height:1px;background:var(--filet);align-self:center}
+.vente .badge.b-vendu{color:var(--olive);border-color:var(--olive)}
+.vente .badge.b-cours{color:#8A6A3F;border-color:#B99B6B}
+.vente .badge.b-venir{color:var(--sourdine);border-color:var(--filet-fonce)}
+.vente .prix.p-muted{font-size:1.05rem;color:var(--sourdine);font-family:var(--texte);font-weight:300}
 
-/* ---------- INDIVIDUELLE (allégée) ---------- */
-.indiv-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.3rem}
-.indiv-gallery .shot{overflow:hidden;aspect-ratio:4/3;background:var(--stone);border-radius:6px}
-.indiv-gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.indiv-gallery .shot:hover img{transform:scale(1.04)}
-
-
-/* ventes récentes */
-.ventes{background:#fff}
-.ventes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.3rem}
-.vente{border:1px solid var(--line);border-radius:6px;padding:1.6rem 1.5rem;background:var(--paper);position:relative;display:flex;flex-direction:column;gap:.3rem}
-.vente .badge{position:absolute;top:1.1rem;right:1.2rem;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sand);border:1px solid var(--sand);border-radius:99px;padding:.22rem .6rem;font-weight:500}
-.vente h3{color:var(--slate);font-size:1.08rem;padding-right:4.5rem}
-.vente .surf{font-size:.88rem;color:#59626e}
-.vente .prix{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.35rem;color:var(--slate);margin-top:.5rem}
-.ventes .mention{font-size:.82rem;color:#8a919c;margin-top:1.8rem}
-.ventes .groupe{display:flex;align-items:center;gap:1rem;margin:2.8rem 0 1.4rem}
-.ventes .groupe h3{font-size:1.2rem;color:var(--slate);white-space:nowrap}
-.ventes .groupe::after{content:"";flex:1;height:1px;background:var(--line)}
-.vente .badge.b-vendu{color:#44594A;border-color:#44594A}
-.vente .badge.b-cours{color:#B5876A;border-color:#B5876A}
-.vente .badge.b-venir{color:#8A8F98;border-color:#8A8F98}
-.vente .prix.p-muted{font-size:1rem;color:#8A8F98;font-weight:400;font-family:'Inter',sans-serif}
+/* ---------- INDIVIDUELLE : bande grège, arches ---------- */
+.individuelle{background:var(--grege)}
+.indiv-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem 1.6rem}
+.indiv-gallery .shot{overflow:hidden}
+.indiv-gallery img{width:100%;height:340px;object-fit:cover;border-radius:150px 150px 0 0;transition:opacity .25s}
+.indiv-gallery .shot:hover img{opacity:.92}
 
 /* ---------- ACCOMPAGNEMENT ---------- */
-.steps{counter-reset:step;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.2rem 3rem}
-.step{counter-increment:step;position:relative;padding-left:3.8rem}
-.step::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:.15rem;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.4rem;color:var(--sand)}
-.step h3{color:var(--slate);font-size:1.05rem;margin-bottom:.45rem}
-.step p{font-size:.93rem;color:#59626e}
+.accomp{background:var(--ivoire)}
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.6rem 3rem}
+.step{counter-increment:step}
+.step::before{content:counter(step,decimal-leading-zero);display:block;font-family:var(--display);font-weight:300;font-size:2.5rem;color:var(--olive);line-height:1;margin-bottom:.7rem}
+.step h3{font-family:var(--texte);color:var(--encre);font-size:1.1rem;font-weight:500;margin-bottom:.45rem;letter-spacing:0}
+.step p{font-size:.95rem;color:var(--sourdine);font-weight:300}
 
-/* ---------- AGENCES ---------- */
-.ag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.agence{border:1px solid var(--line);border-radius:6px;padding:2rem;background:#fff}
-.agence h3{color:var(--slate);font-size:1.1rem;margin-bottom:1.1rem;padding-bottom:.85rem;border-bottom:1px solid var(--line)}
-.agence dl{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1.2rem;font-size:.93rem}
-.agence dt{color:var(--sand);letter-spacing:.14em;text-transform:uppercase;font-size:.68rem;font-weight:500;padding-top:.25rem}
-.agence a{border-bottom:1px solid var(--line)}
-.agence a:hover{color:var(--slate);border-bottom-color:var(--slate)}
+/* ---------- AGENCES : coordonnées à filets ---------- */
+.agences{background:var(--grege)}
+.ag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 3.5rem}
+.agence{border-top:1px solid var(--filet-fonce);padding:1.8rem 0 2rem}
+.agence h3{font-weight:400;font-size:1.45rem;color:var(--encre);margin-bottom:1.3rem;letter-spacing:-.01em}
+.agence dl{display:grid;grid-template-columns:auto 1fr;gap:.6rem 1.4rem;font-size:.95rem}
+.agence dt{color:var(--sourdine);letter-spacing:.18em;text-transform:uppercase;font-size:.68rem;padding-top:.3rem}
+.agence dd{color:var(--encre-douce);font-weight:300}
+.agence a{border-bottom:1px solid var(--filet-fonce);color:var(--encre-douce)}
+.agence a:hover{color:var(--olive);border-bottom-color:var(--olive)}
 
 /* ---------- CONTACT ---------- */
-.contact{background:var(--stone)}
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start}
-.contact h2{color:var(--slate);font-size:clamp(1.7rem,3vw,2.3rem);margin:.5rem 0 1.1rem}
-.contact p{color:#59626e}
+.contact{background:var(--ivoire)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4.5rem;align-items:start}
+.contact h2{font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;color:var(--encre);margin:.6rem 0 1.1rem}
+.contact h2 em{font-style:italic;color:var(--olive)}
+.contact p{color:var(--sourdine);font-weight:300;font-size:1.02rem}
 form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .field-full{grid-column:1/-1}
-input,textarea,select{width:100%;background:#fff;border:1px solid var(--line);color:var(--ink);padding:.85rem 1rem;font-family:'Inter',sans-serif;font-size:.94rem;border-radius:3px}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--slate)}
-textarea{min-height:125px;resize:vertical}
-form .btn-dark{border:none;grid-column:1/-1;justify-self:start}
-#form-note{grid-column:1/-1;font-size:.85rem;color:var(--slate);min-height:1.2em}
+input,textarea,select{width:100%;background:var(--papier);border:1px solid var(--filet-fonce);color:var(--encre);padding:.95rem 1rem;font-family:var(--texte);font-size:.96rem;font-weight:300;border-radius:0;min-height:54px}
+input::placeholder,textarea::placeholder{color:var(--sourdine)}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--olive);box-shadow:0 0 0 1px var(--olive)}
+textarea{min-height:130px;resize:vertical}
+form .btn{grid-column:1/-1;justify-self:start}
+#form-note{grid-column:1/-1;font-size:.88rem;color:var(--olive);min-height:1.2em}
 
 /* ---------- FOOTER ---------- */
-footer{background:var(--slate-deep);color:rgba(255,255,255,.6);padding:2.2rem 1.5rem;font-size:.82rem}
+footer{background:var(--ivoire);border-top:1px solid var(--filet);color:var(--sourdine);padding:2.2rem 1.5rem;font-size:.85rem;font-weight:300}
 footer .wrap{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center}
-footer strong{color:#fff;font-weight:500}
+footer strong{color:var(--encre);font-weight:500}
 
 @media (max-width:900px){
-  nav ul{position:fixed;top:60px;right:0;left:0;background:#E4DFD3;flex-direction:column;gap:0;padding:.8rem 1.5rem 1.3rem;display:none;border-bottom:1px solid var(--line);align-items:flex-start}
+  nav ul{position:fixed;top:64px;right:0;left:0;background:var(--ivoire);flex-direction:column;gap:0;padding:.8rem 1.5rem 1.3rem;display:none;border-bottom:1px solid var(--filet);align-items:flex-start}
   nav ul.open{display:flex}
   nav li{padding:.5rem 0}
-  .segments,.contact-grid{grid-template-columns:1fr}
+  .segments{grid-template-columns:1fr;gap:2.2rem}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
   form{grid-template-columns:1fr}
+  section{padding:4.5rem 1.5rem}
+  .hero{padding:8rem 1.5rem 4rem}
+  .hero-visual img{height:300px;border-radius:14px}
+  .indiv-gallery img{height:260px;border-radius:120px 120px 0 0}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .card,.indiv-gallery img,.segment .go::after{transition:none}
+  .indiv-gallery img,.mit-gallery img,.segment .go::after{transition:none}
 }
 </style>
 </head>
@@ -192,7 +203,7 @@ footer strong{color:#fff;font-weight:500}
 
 <header>
   <div class="nav">
-    <a class="brand" href="#accueil">Les Bâtisseurs Créateurs<small>Constructeur — PACA</small></a>
+    <a class="brand" href="#accueil"><b>Les Bâtisseurs</b><small>Créateurs — PACA</small></a>
     <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
     <nav>
       <ul id="menu">
@@ -211,7 +222,7 @@ footer strong{color:#fff;font-weight:500}
 <section class="hero" id="accueil">
   <div class="hero-inner">
     <p class="eyebrow">Constructeur de maisons — Région PACA</p>
-    <h1>Devenez propriétaire d'une maison neuve, au meilleur prix du marché</h1>
+    <h1>Devenez propriétaire d'une maison neuve, <em>au meilleur prix du marché</em></h1>
     <p class="lead">Grâce à notre concept unique, nous réinventons l'accession à la maison neuve en proposant des maisons mitoyennes avec jardin privatif, particulièrement attractives sur le plan financier. Une solution clé en main qui allie confort, sécurité juridique et intelligence financière, encadrée par toutes les garanties du contrat CCMI.</p>
   </div>
   <div class="hero-visual">
@@ -237,8 +248,8 @@ footer strong{color:#fff;font-weight:500}
 <section class="mitoyenne" id="mitoyenne">
   <div class="wrap">
     <div class="sec-head">
-      <div class="seg-band"><span class="n">NOTRE SPÉCIALITÉ</span></div>
-      <h2>La maison mitoyenne : la solution la plus puissante financièrement</h2>
+      <div class="seg-band"><span class="n">Notre spécialité</span></div>
+      <h2>La maison mitoyenne : <em>la solution la plus puissante financièrement</em></h2>
       <p>Acheter une maison neuve avec jardin au prix d'un appartement devient possible. En optimisant chaque mètre carré et chaque étape de construction, nous proposons une solution rare sur le marché : plus d'espace, plus d'indépendance et toutes les garanties du neuf.</p>
     </div>
 
@@ -257,22 +268,10 @@ footer strong{color:#fff;font-weight:500}
 
     <div class="sub-title"><h3>Quatre surfaces au choix</h3></div>
     <div class="cards">
-      <article class="card">
-        <div class="thumb"><span>70</span></div>
-        <div class="card-body"><h4>70 m²</h4><p class="meta">2 à 3 chambres — jardin privatif</p></div>
-      </article>
-      <article class="card">
-        <div class="thumb"><span>75</span></div>
-        <div class="card-body"><h4>75 m²</h4><p class="meta">3 chambres — jardin privatif</p></div>
-      </article>
-      <article class="card">
-        <div class="thumb"><span>80</span></div>
-        <div class="card-body"><h4>80 m²</h4><p class="meta">3 chambres — jardin privatif</p></div>
-      </article>
-      <article class="card">
-        <div class="thumb"><span>90</span></div>
-        <div class="card-body"><h4>90 m²</h4><p class="meta">3 à 4 chambres — jardin privatif</p></div>
-      </article>
+      <div class="card"><b>70<i> m²</i></b><p class="meta">2 à 3 chambres — jardin privatif</p></div>
+      <div class="card"><b>75<i> m²</i></b><p class="meta">3 chambres — jardin privatif</p></div>
+      <div class="card"><b>80<i> m²</i></b><p class="meta">3 chambres — jardin privatif</p></div>
+      <div class="card"><b>90<i> m²</i></b><p class="meta">3 à 4 chambres — jardin privatif</p></div>
     </div>
 
     <div class="sub-title"><h3>En images</h3></div>
@@ -303,7 +302,7 @@ footer strong{color:#fff;font-weight:500}
 
     <div class="mit-cta">
       <p>Les prix varient selon le secteur. Contactez-nous pour recevoir les disponibilités et organiser une visite.</p>
-      <a class="btn btn-sand" href="#contact">Demander les disponibilités</a>
+      <a class="btn" href="#contact">Demander les disponibilités</a>
     </div>
   </div>
 </section>
@@ -312,8 +311,8 @@ footer strong{color:#fff;font-weight:500}
 <section class="ventes" id="ventes">
   <div class="wrap">
     <div class="sec-head">
-      <div class="seg-band"><span class="n">PRIX CONSTATÉS</span></div>
-      <h2>Prix constatés &amp; projets en cours</h2>
+      <div class="seg-band"><span class="n">Prix constatés</span></div>
+      <h2>Prix constatés &amp; <em>projets en cours</em></h2>
       <p>Pas de promesse théorique : des projets réellement signés, d'autres en construction, et les prochaines opportunités. Jugez par vous-même.</p>
     </div>
     <div id="projets-conteneur"></div>
@@ -338,15 +337,15 @@ footer strong{color:#fff;font-weight:500}
       { commune: "Allauch 1",             surface: 80, prix: "335 000 €", statut: "vendu" },
       { commune: "Allauch 3",             surface: 80, prix: "350 000 €", statut: "vendu" },
       { commune: "La Penne-sur-Huveaune 4", surface: 70, prix: "286 000 €", statut: "vendu" },
+      { commune: "Ceyrat (63)",           surface: 80, prix: "249 000 €", statut: "vendu" },
+      { commune: "Beaumont (63)",         surface: 80, prix: "239 000 €", statut: "vendu" },
+      { commune: "Allauch 4",             surface: 80, prix: "340 000 €", statut: "vendu" },
+      { commune: "La Penne-sur-Huveaune 5", surface: 80, prix: "320 000 €", statut: "vendu" },
       // --- En cours ---
-      { commune: "Ceyrat (63)",           surface: 80, prix: "249 000 €", statut: "en-cours" },
-      { commune: "Beaumont (63)",         surface: 80, prix: "239 000 €", statut: "en-cours" },
-      { commune: "Allauch 4",             surface: 80, prix: "340 000 €", statut: "en-cours" },
-      { commune: "La Penne-sur-Huveaune 5", surface: 80, prix: "320 000 €", statut: "en-cours" },
-      // --- À venir ---
-      { commune: "Chamalières (63)",      surface: 80, prix: "295 000 €", statut: "a-venir" },
-      { commune: "Allauch 5",             surface: 80, prix: "345 000 €", statut: "a-venir" },
-      { commune: "Plan-de-Cuques",        surface: 80, prix: "310 000 €", statut: "a-venir" },
+      { commune: "Marseille — 3 Lucs",    surface: 80, prix: "335 000 €", statut: "en-cours" },
+      { commune: "Allauch — Nouveau",     surface: 80, prix: "345 000 €", statut: "en-cours" },
+      { commune: "Les Pennes-Mirabeau",   surface: 80, prix: "310 000 €", statut: "en-cours" },
+      // --- À venir --- (section masquée tant qu'elle est vide)
     ];
 
     (function(){
@@ -375,11 +374,11 @@ footer strong{color:#fff;font-weight:500}
 </section>
 
 <!-- INDIVIDUELLE : ALLÉGÉE -->
-<section id="individuelle">
+<section class="individuelle" id="individuelle">
   <div class="wrap">
     <div class="sec-head">
-      <div class="seg-band"><span class="n">SUR DEMANDE</span></div>
-      <h2>La maison individuelle sur mesure</h2>
+      <div class="seg-band"><span class="n">Sur demande</span></div>
+      <h2>La maison individuelle <em>sur mesure</em></h2>
       <p>Notre bureau d'étude conçoit également des projets entièrement personnalisés : plans sur mesure, prestations haut de gamme, suivi complet du permis de construire à la remise des clés. Quelques exemples de nos réalisations :</p>
     </div>
     <div class="indiv-gallery">
@@ -394,10 +393,10 @@ footer strong{color:#fff;font-weight:500}
 </section>
 
 <!-- ACCOMPAGNEMENT -->
-<section id="accompagnement" style="background:#fff">
+<section class="accomp" id="accompagnement">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Un accompagnement de A à Z, quel que soit votre projet</h2>
+      <h2>Un accompagnement de A à Z, <em>quel que soit votre projet</em></h2>
     </div>
     <div class="steps">
       <div class="step"><h3>Recherche de votre terrain</h3><p>Grâce à nos partenaires fonciers et nos exclusivités, nous vous proposons des terrains adaptés à votre secteur et à votre budget.</p></div>
@@ -411,14 +410,14 @@ footer strong{color:#fff;font-weight:500}
 </section>
 
 <!-- AGENCES -->
-<section id="agences">
+<section class="agences" id="agences">
   <div class="wrap">
     <div class="sec-head">
       <h2>Nos agences</h2>
     </div>
     <div class="ag-grid">
       <div class="agence">
-        <h3>Aix – Marseille · Les Bâtisseurs Créateurs</h3>
+        <h3>Aix – Marseille</h3>
         <dl>
           <dt>Adresse</dt><dd>203 avenue Paul Julien, 13100 Le Tholonet</dd>
           <dt>Téléphone</dt><dd><a href="tel:+33764121126">07 64 12 11 26</a></dd>
@@ -426,7 +425,7 @@ footer strong{color:#fff;font-weight:500}
         </dl>
       </div>
       <div class="agence">
-        <h3>Clermont-Ferrand · Les Bâtisseurs Créateurs</h3>
+        <h3>Clermont-Ferrand</h3>
         <dl>
           <dt>Adresse</dt><dd>138 route de Volvic, 63530 Enval</dd>
           <dt>Téléphone</dt><dd><a href="tel:+33764121126">07 64 12 11 26</a></dd>
@@ -449,7 +448,8 @@ footer strong{color:#fff;font-weight:500}
 <section class="contact" id="contact">
   <div class="wrap contact-grid">
     <div>
-      <h2>Votre projet commence ici</h2>
+      <div class="seg-band"><span class="n">Contact</span></div>
+      <h2>Votre projet <em>commence ici</em></h2>
       <p>Décrivez-nous votre projet : secteur recherché, budget, maison mitoyenne ou individuelle. Nous vous répondons sous 48 h et organisons une visite.</p>
     </div>
     <form id="lead-form" novalidate>
@@ -464,7 +464,7 @@ footer strong{color:#fff;font-weight:500}
         <option>Je ne sais pas encore</option>
       </select>
       <textarea class="field-full" name="message" placeholder="Votre message"></textarea>
-      <button class="btn btn-dark" type="submit">Envoyer ma demande</button>
+      <button class="btn" type="submit">Envoyer ma demande</button>
       <p id="form-note" role="status"></p>
     </form>
   </div>
